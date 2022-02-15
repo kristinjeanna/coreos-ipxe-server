@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/kelseyhightower/coreos-ipxe-server/config"
+	"github.com/kristinjeanna/coreos-ipxe-server/config"
 )
 
 func main() {
