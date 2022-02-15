@@ -90,7 +90,7 @@ func TestIPxeBootScriptServer(t *testing.T) {
 	}
 
 	profiles := map[string]*kernel.Options{
-		"a": &kernel.Options{
+		"a": {
 			CloudConfig:     "",
 			Console:         []string{},
 			CoreOSAutologin: "",
@@ -99,7 +99,7 @@ func TestIPxeBootScriptServer(t *testing.T) {
 			SSHKey:          "",
 			Version:         "310.1.0",
 		},
-		"b": &kernel.Options{
+		"b": {
 			CloudConfig:     "b",
 			Console:         []string{"tty0", "ttyS0"},
 			CoreOSAutologin: "ttyS0",
@@ -108,7 +108,7 @@ func TestIPxeBootScriptServer(t *testing.T) {
 			SSHKey:          "coreos",
 			Version:         "310.1.0",
 		},
-		"c": &kernel.Options{
+		"c": {
 			CloudConfig:     "c",
 			Console:         []string{"tty0", "ttyS0"},
 			CoreOSAutologin: "ttyS0",
