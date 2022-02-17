@@ -37,9 +37,9 @@ func ipxeBootScriptServer(w http.ResponseWriter, r *http.Request) {
 	profile := v.Get("profile")
 	if profile != "" {
 		profilePath := filepath.Join(config.DataDir, fmt.Sprintf("profiles/%s.json", profile))
-		err := kernalOptionsFromFile(profilePath, options)
+		err := kernelOptionsFromFile(profilePath, options)
 		if err != nil {
-			log.Printf("Error reading kernal options from %s: %s", profilePath, err)
+			log.Printf("Error reading kernel options from %s: %s", profilePath, err)
 			http.Error(w, err.Error(), 500)
 			return
 		}
@@ -106,7 +106,7 @@ func sshKeyFromFile(filename string) (string, error) {
 	return string(bytes.TrimSpace(b)), nil
 }
 
-func kernalOptionsFromFile(filename string, options *kernel.Options) error {
+func kernelOptionsFromFile(filename string, options *kernel.Options) error {
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return err
